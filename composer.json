@@ -1,0 +1,41 @@
+{
+    "name": "clarkwinkelmann/flarum-ext-quiz-polls",
+    "description": "Turn FoF Polls into Quizzes",
+    "keywords": [
+        "flarum"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": "^0.1.0-beta.15",
+        "fof/polls": "*"
+    },
+    "authors": [
+        {
+            "name": "Clark Winkelmann",
+            "email": "clark.winkelmann@gmail.com",
+            "homepage": "https://clarkwinkelmann.com/",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/clarkwinkelmann/flarum-ext-quiz-polls/issues",
+        "source": "https://github.com/clarkwinkelmann/flarum-ext-quiz-polls"
+    },
+    "autoload": {
+        "psr-4": {
+            "ClarkWinkelmann\\QuizPolls\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Quiz Polls",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-signal",
+                "backgroundColor": "#684ba6",
+                "color": "#fff"
+            }
+        }
+    }
+}
