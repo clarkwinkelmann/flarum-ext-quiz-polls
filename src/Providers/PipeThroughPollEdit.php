@@ -6,6 +6,7 @@ use ClarkWinkelmann\QuizPolls\Repositories\PollRepository;
 use Flarum\Foundation\AbstractServiceProvider;
 use FoF\Polls\Commands\EditPoll;
 use FoF\Polls\Poll;
+use FoF\Polls\PollOption;
 use Illuminate\Contracts\Bus\Dispatcher;
 use Illuminate\Support\Arr;
 
@@ -31,6 +32,19 @@ class PipeThroughPollEdit extends AbstractServiceProvider
 
                         foreach ($options as $opt) {
                             $id = Arr::get($opt, 'id');
+
+                            // If it's a new answer, we need to find its ID in the database
+                            if (!$id) {
+                                /**
+                                 * @var $option PollOption
+                                 */
+                                $option = $poll->options()->where('answer', Arr::get($opt, 'attributes.answer'))->first();
+
+                                if ($option) {
+                                    $id = $option->id;
+                                }
+                            }
+
                             $correct = Arr::get($opt, 'attributes.correct');
 
                             $map[$id] = $correct;

@@ -49,6 +49,8 @@ app.initializers.add('clarkwinkelmann-quiz-polls', () => {
 
     extend(EditPollModal.prototype, 'displayOptions', function (vdom) {
         this.options.forEach((option, index) => {
+            // Because fof/pol create the record without any attribute, we need this line of code otherwise attribute() fails
+            option.data.attributes = option.data.attributes || {};
             const correct = option.attribute('correct');
 
             vdom[index].children.splice(1, 0, Button.component({
@@ -91,7 +93,14 @@ app.initializers.add('clarkwinkelmann-quiz-polls', () => {
         }
 
         this.options.forEach((option, index) => {
-            vdom.children[1].children[index].attrs.className += ' ' + (option.attribute('correct') ? 'PollOption--correct' : 'PollOption--wrong');
+            const isCorrectAnswer = option.attribute('correct');
+            const isUserVote = this.vote() && this.vote().option().id() === option.id();
+console.log(isCorrectAnswer, isUserVote);
+            if (!isCorrectAnswer && !isUserVote) {
+                return;
+            }
+
+            vdom.children[1].children[index].attrs.className += (isUserVote ? ' PollOption--own' : '') + (isCorrectAnswer ? ' PollOption--correct' : ' PollOption--wrong');
         });
     });
 });
