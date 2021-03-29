@@ -9,7 +9,7 @@ app.initializers.add('clarkwinkelmann-quiz-polls', () => {
         EditPollModal,
     } = flarum.extensions['fof-polls'].components;
 
-    extend(CreatePollModal.prototype, 'onsubmit', function () {
+    extend(CreatePollModal.prototype, 'oninit', function () {
         this.correctAnswerIndex = null;
     });
 
@@ -36,7 +36,9 @@ app.initializers.add('clarkwinkelmann-quiz-polls', () => {
         const originalSubmit = this.attrs.onsubmit;
 
         this.attrs.onsubmit = poll => {
-            poll.correctAnswer = this.options[this.correctAnswerIndex]();
+            if (this.correctAnswerIndex !== null) {
+                poll.correctAnswer = this.options[this.correctAnswerIndex]();
+            }
 
             originalSubmit(poll);
         };
@@ -95,7 +97,7 @@ app.initializers.add('clarkwinkelmann-quiz-polls', () => {
         this.options.forEach((option, index) => {
             const isCorrectAnswer = option.attribute('correct');
             const isUserVote = this.vote() && this.vote().option().id() === option.id();
-console.log(isCorrectAnswer, isUserVote);
+
             if (!isCorrectAnswer && !isUserVote) {
                 return;
             }
