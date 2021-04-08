@@ -90,13 +90,14 @@ app.initializers.add('clarkwinkelmann-quiz-polls', () => {
 
         vdom.attrs.className = (vdom.attrs.className || '') + ' Poll--quiz';
 
-        if (!this.voted()) {
+        // If user has not voted, don't change anything else
+        if (this.myVotes.length === 0) {
             return;
         }
 
         this.options.forEach((option, index) => {
             const isCorrectAnswer = option.attribute('correct');
-            const isUserVote = this.vote() && this.vote().option().id() === option.id();
+            const isUserVote = this.myVotes.some((vote) => vote.option() === option);
 
             if (!isCorrectAnswer && !isUserVote) {
                 return;
