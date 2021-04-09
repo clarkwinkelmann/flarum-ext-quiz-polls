@@ -1,6 +1,6 @@
 # Quiz Polls
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/clarkwinkelmann/flarum-ext-quizz-polls.svg)](https://packagist.org/packages/clarkwinkelmann/flarum-ext-quizz-polls) [![Total Downloads](https://img.shields.io/packagist/dt/clarkwinkelmann/flarum-ext-quizz-polls.svg)](https://packagist.org/packages/clarkwinkelmann/flarum-ext-quizz-polls) [![Donate](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.me/clarkwinkelmann)
+![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/clarkwinkelmann/flarum-ext-quiz-polls.svg)](https://packagist.org/packages/clarkwinkelmann/flarum-ext-quiz-polls) [![Total Downloads](https://img.shields.io/packagist/dt/clarkwinkelmann/flarum-ext-quiz-polls.svg)](https://packagist.org/packages/clarkwinkelmann/flarum-ext-quiz-polls) [![Donate](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.me/clarkwinkelmann)
 
 This extension allows turning polls created with the FriendsOfFlarum Polls extension into Quizzes.
 
@@ -11,7 +11,7 @@ The answers have a `.PollOption--correct` and `.PollOption--wrong` classes added
 
 ## Installation
 
-    composer require clarkwinkelmann/flarum-ext-quizz-polls
+    composer require clarkwinkelmann/flarum-ext-quiz-polls
 
 ## Support
 
@@ -26,5 +26,5 @@ Support is offered on a "best effort" basis through the Flarum community thread.
 
 ## Links
 
-- [GitHub](https://github.com/clarkwinkelmann/flarum-ext-quizz-polls)
-- [Packagist](https://packagist.org/packages/clarkwinkelmann/flarum-ext-quizz-polls)
+- [GitHub](https://github.com/clarkwinkelmann/flarum-ext-quiz-polls)
+- [Packagist](https://packagist.org/packages/clarkwinkelmann/flarum-ext-quiz-polls)
